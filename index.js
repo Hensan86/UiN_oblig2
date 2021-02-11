@@ -9,7 +9,7 @@ try {
 
   (function Demo() {
     // Use let (or const) instead of var to make the function succeed.
-    const myDemo = "This is a dem";
+    const myDemo = "This is a demo";
 
     // Don't make changes below this line
 
@@ -20,29 +20,29 @@ try {
 
   /// let (or const) ///
 
-  // (function UseLetOrConst() {
-  //   // Use let (or const) instead of var to make the function succeed.
-  //   var x = 1;
-  //   if (true) {
-  //     var x = 2;
-  //   }
+  (function UseLetOrConst() {
+    // Use let (or const) instead of var to make the function succeed.
+   let x = 1;
+    if (true) {
+      let x = 2;
+    }
 
-  //   // Don't make changes below this line
+    // Don't make changes below this line
 
-  //   expect(x).toBe(1);
+    expect(x).toBe(1);
 
-  //   solved++;
-  // })();
+    solved++;
+  })();
 
   /// Template strings ///
 
-  /*
+
 	(function UseTemplateStrings1() {
 		const who = 'World';
 		const addOne = x => x + 1;
 		
 		// Rewrite the line below to use template literals.
-		const greeting = 'Hello {who}! {addOne(2)} times.';
+		const greeting = `Hello ${who}! ${addOne(2)} times.`;
 
 		// Don't make changes below this line	
 		
@@ -50,18 +50,18 @@ try {
 		
 		solved++;
 	})();
-  */
+
 
   /// functions default parameters ///
 
-  /*
+
 	(function UseDefaultParameters() {
     
 		// Correct the syntax errors in the function.
-		function hello(who) {
+		function hello(who = 'World') {
 			return 'Hello ' + who + '!';
 		}
-
+		
 		// Don't make changes below this line	
 
 		expect(hello()).toBe('Hello World!');
@@ -69,16 +69,17 @@ try {
 		
 		solved++;
 	})();
-	*/
+
+
 
   /// Rest parameter ///
 
-  /*
+
 	(function UseRestParameter() {
 		// Add just one rest parameter and use the number of elements in this parameter 
 		// (What is the name of that property?) in the return statement to let the test pass.
-		function foo(a, b) {
-			return a + b;
+		function foo(a, b, ...rest) {
+			return a + b + rest.length; 
 		}
 
 		// Don't make changes below this line	
@@ -88,11 +89,11 @@ try {
 		
 		solved++;
 	})();
-	*/
+
 
   /// Spread operator ///
 
-  /*
+
 	(function UseSpreadOperator1() {
 		function add(a, b, c) {
 			return a + b + c;
@@ -101,7 +102,7 @@ try {
 		let values = [1, 3, 6];
 		
 		// Use spread operator to let the test pass.
-		let result = add(values);
+		let result = add(...values);
 
 		// Don't make changes below this line	
 		
@@ -109,16 +110,16 @@ try {
 		
 		solved++;
 	})();
-	*/
 
-  /*
+
+
 	(function UseSpreadOperator2() {
 		const arr1 = [1, 2, 3];
 		const value = 4;
 		const arr2 = [5, 6];
 		
 		// Change after = to let the test pass. DO NOT use concat or loops, but use the spread operator.
-		let result = [0];
+		let result = [...arr1, value, ...arr2];
 
 		// Don't make changes below this line	
 		
@@ -126,15 +127,15 @@ try {
 		
 		solved++;
 	})();
-	*/
+
 
   /// Arrow functions ///
 
-  /*
+ 
 	(function UseArrow1() {
 		// Rewrite double as arrow function and make the test pass.
-		let double = function (x) {
-			return x;
+		let double = (x) => {
+			return x+x;
 		};
 
 		// Don't make changes below this line	
@@ -144,12 +145,14 @@ try {
 		
 		solved++;
 	})();
-	*/
 
-  /*
+
+
 	(function UseArrow2() {
 		// Correct the errors in the arrow function.
-		let add = x, y => return x * y;
+		let add = (x, y) => { 
+			return x + y; 
+		};
 
 		// Don't make changes below this line	
 		
@@ -158,11 +161,11 @@ try {
 		
 		solved++;
 	})();
-	*/
+
 
   /// Destructuring ///
 
-  /*
+
 	(function UseArrayDestructuring1() {
 		const arr = [1, 2, 3, 4, 5, 6];
 		
@@ -170,7 +173,9 @@ try {
 		// Tip: Spread operator might be needed too.
 		let a = arr[0];
 		let b = arr[2];
-		let c = arr.slice(3); 
+		let c = arr.slice(3);
+		
+		const result = [a, b, c];
 
 		// Don't make changes below this line	
 		
@@ -180,9 +185,9 @@ try {
 		
 		solved++;
 	})();
-	*/
 
-  /*
+
+
 	(function UseArrayDestructuring2() {
 		let a = 1;
 		let b = 2;
@@ -193,6 +198,9 @@ try {
 		a = b;
 		b = tmp; 
 
+		const result = [a, b];
+
+
 		// Don't make changes below this line	
 		
 		expect(a).toEqual(2);
@@ -200,9 +208,9 @@ try {
 		
 		solved++;
 	})();
-	*/
 
-  /*
+
+
 	(function UseObjectDestructuring1() {
 		let obj = {
 			name: 'Oslo',
@@ -215,6 +223,8 @@ try {
 		let age = obj.age;
 		let add = obj.add;
 
+		const result = {name, age, add};
+
 		// Don't make changes below this line	
 		
 		expect(name).toBe('Oslo');
@@ -223,13 +233,14 @@ try {
 		
 		solved++;
 	})();
-	*/
 
-  /*
+
+
   (function UseParameterDestructuring1() {
     // Adjust the code to let the test succeed.
 
-    const a = 'Oslo' + 985;
+
+    const a = ['Oslo', + 985];
 
     // Don't make changes below this line
 
@@ -242,14 +253,16 @@ try {
 
     solved++;
   })();
-	*/
 
-  /*
+
+
   (function UseParameterDestructuring2() {
     // Adjust the code to let the test succeed.
 
-    const a = 'Oslo' + 985;
-
+	const a = {
+		name: 'Oslo',
+		age: 985,
+	}
     // Don't make changes below this line
 
     function f({ name, age }) {
@@ -261,11 +274,11 @@ try {
 
     solved++;
   })();
-	*/
+
 
   /// Property shorthand ///
 
-  /*
+
 	(function UsePropertyShorthand() {
 		const name = 'Oslo';
 		const age = 985;
@@ -273,8 +286,8 @@ try {
 		
 		// Remove all unnecesary syntax to let the test pass.
 		let city = {
-			name: name,
-			age: age,
+			name,
+			age,
 			dutch: !norwegian
 		};
 
@@ -284,16 +297,15 @@ try {
 		
 		solved++;
 	})();
-	*/
 
   /// Object Spread Properties (ES2018) ///
 
-  /*
+
 	(function UseObjectSpreadProperties1() {
 		let obj = { val: 1 };
 		
 		// Use Object Spread Properties to let the tests succeed.
-		let copy = obj;
+		let copy = {...obj};
 
 		// Don't make changes below this line	
 		
@@ -304,9 +316,9 @@ try {
 
 		solved++;
 	})();
-	*/
 
-  /*
+
+
 	(function UseObjectSpreadProperties2() {
 		let obj1 = { a: 100, b: 2, c: 300 };
 		let obj2 = { b: 0, d: 100, e: 200};
@@ -316,7 +328,14 @@ try {
 		// - Do NOT use Object.assign()
 		// - Do use object spread properties
 		// - Think about the order!
-		let result = { obj1, obj2, obj3 };
+	
+		const { a } = obj1
+		const { b } = obj2
+		const { c } = obj3
+		const { d } = obj2
+		const { e } = obj2
+		
+		let result = { a, b, c, d, e };
 
 		// Don't make changes below this line	
 		
@@ -328,7 +347,7 @@ try {
 
 		solved++;
 	})();
-	*/
+
 
   ////// BONUS //////
 
