@@ -171,11 +171,11 @@ try {
 		
 		// Use array destructuring to change the 3 statements below into 1 statement.
 		// Tip: Spread operator might be needed too.
-		let a = arr[0];
-		let b = arr[2];
-		let c = arr.slice(3);
+		//let a = arr[0];
+		//let b = arr[2];
+		//let c = arr.slice(3);
 		
-		const result = [a, b, c];
+		const [ a,, b, ...c ] = arr; 
 
 		// Don't make changes below this line	
 		
@@ -194,11 +194,11 @@ try {
 		
 		// Use array destructuring to change the 3 statements below into 1 statement.
 		// You should not need a temporary variable anymore.
-		let tmp = a;
-		a = b;
-		b = tmp; 
-
-		const result = [a, b];
+		//let tmp = a; //1
+		//a = b; //2
+		//b = tmp; //1
+		
+		[a, b] = [b, a];
 
 
 		// Don't make changes below this line	
@@ -219,11 +219,8 @@ try {
 		}
 		
 		// Use object destructuring to change the 3 statements below into 1 statement.
-		let name = obj.name;
-		let age = obj.age;
-		let add = obj.add;
 
-		const result = {name, age, add};
+		const { name, age, add } = obj;
 
 		// Don't make changes below this line	
 		
@@ -329,14 +326,8 @@ try {
 		// - Do use object spread properties
 		// - Think about the order!
 	
-		const { a } = obj1
-		const { b } = obj2
-		const { c } = obj3
-		const { d } = obj2
-		const { e } = obj2
+		const result = {...obj1, ...obj3, ...obj2, };  // a = 100, b = 0, c = 4, d = 100, e = 200
 		
-		let result = { a, b, c, d, e };
-
 		// Don't make changes below this line	
 		
 		expect(result.a).toBe(100);
